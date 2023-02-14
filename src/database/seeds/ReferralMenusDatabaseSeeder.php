@@ -13,7 +13,6 @@ class ReferralMenusDatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $referral_program_menu_id = \DB::table('menus')->insertGetId([
             'parent_id' => 1,
             'key' => null,
@@ -24,12 +23,13 @@ class ReferralMenusDatabaseSeeder extends Seeder
             'icon' => 'fa fa-retweet',
             'target' => null,
             'roles' => '["1","2"]',
-            'order' => 0
+            'order' => 0,
         ]);
 
 
         // seed users children menu
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 [
                     'parent_id' => $referral_program_menu_id,
                     'key' => null,
@@ -40,23 +40,24 @@ class ReferralMenusDatabaseSeeder extends Seeder
                     'icon' => 'fa fa-list-alt',
                     'target' => null,
                     'roles' => '["1","2"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
             ]
         );
         // seed users children menu
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 [
                     'parent_id' => $referral_program_menu_id,
                     'key' => null,
                     'url' => 'referral/my-referrals',
-                    'active_menu_url' =>  'referral/my-referrals',
+                    'active_menu_url' => 'referral/my-referrals',
                     'name' => 'My Referrals',
                     'description' => 'Referrals List Menu Item',
                     'icon' => 'fa fa-list-alt',
                     'target' => null,
                     'roles' => '["2"]',
-                    'order' => 2
+                    'order' => 2,
                 ],
             ]
         );

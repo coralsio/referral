@@ -50,7 +50,7 @@ class ReferralTest extends TestCase
     public function test_store_referral_programs()
     {
         $this->referralRequest = [
-            'name' => $this->name[array_rand($this->name)].rand(0,10000),
+            'name' => $this->name[array_rand($this->name)].rand(0, 10000),
             'status' => $this->status[array_rand($this->status)],
             'referral_action' => 'subscription',
             'title' => "dddd",
@@ -146,6 +146,4 @@ class ReferralTest extends TestCase
             $this->assertFalse(false, 'Referral Not Found');
         }
     }
-
-
 }

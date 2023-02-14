@@ -9,7 +9,7 @@ use Corals\Modules\Referral\database\seeds\ReferralDatabaseSeeder;
 class InstallModuleServiceProvider extends BaseInstallModuleServiceProvider
 {
     protected $migrations = [
-        ReferralTables::class
+        ReferralTables::class,
     ];
 
     protected function providerBooted()

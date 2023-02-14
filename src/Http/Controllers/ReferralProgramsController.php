@@ -3,11 +3,11 @@
 namespace Corals\Modules\Referral\Http\Controllers;
 
 use Corals\Foundation\Http\Controllers\BaseController;
-use Corals\Modules\Referral\DataTables\ReferralProgramsDataTable;
-use Corals\Modules\Referral\Http\Requests\ReferralProgramRequest;
 use Corals\Foundation\Http\Requests\BulkRequest;
-use Corals\Modules\Referral\Models\ReferralProgram;
+use Corals\Modules\Referral\DataTables\ReferralProgramsDataTable;
 use Corals\Modules\Referral\Facades\Referral;
+use Corals\Modules\Referral\Http\Requests\ReferralProgramRequest;
+use Corals\Modules\Referral\Models\ReferralProgram;
 
 class ReferralProgramsController extends BaseController
 {
@@ -33,10 +33,9 @@ class ReferralProgramsController extends BaseController
         if (user()->can('Referral::referral_program.update')) {
             return $dataTable->render('ReferralProgram::referral_programs.index');
         } else {
-
             $referral_programs = ReferralProgram::active()->get();
-            return view('ReferralProgram::referral_programs.view_all')->with(compact('referral_programs'));
 
+            return view('ReferralProgram::referral_programs.view_all')->with(compact('referral_programs'));
         }
     }
 
@@ -54,24 +53,19 @@ class ReferralProgramsController extends BaseController
         return view('ReferralProgram::referral_programs.create_edit')->with(compact('referral_program'));
     }
 
-
     public function getActionView($action, $edit_mode, ReferralProgram $referral_program)
     {
         try {
-
             $action_parameters = Referral::prepareActionParameters($action);
             if (view()->exists('ReferralProgram::referral_programs.' . $action . '_action_template')) {
                 return view('ReferralProgram::referral_programs.' . $action . '_action_template')->with(compact('referral_program', 'action', 'action_parameters', 'edit_mode'));
-
             } else {
                 return '';
             }
         } catch (\Exception $exception) {
             log_exception($exception, ReferralProgram::class, 'action_template');
-
         }
     }
-
 
     /**
      * @param ReferralProgramRequest $request
@@ -101,6 +95,7 @@ class ReferralProgramsController extends BaseController
         $action_parameters = Referral::prepareActionParameters($referral_program->referral_action);
         $this->setViewSharedData(['title_singular' => trans('Corals::labels.show_title', ['title' => $referral_program->name])]);
         $this->setViewSharedData(['edit_url' => $this->resource_url . '/' . $referral_program->hashed_id . '/edit']);
+
         return view('ReferralProgram::referral_programs.show')->with(compact('referral_program', 'action_parameters'));
     }
 
@@ -143,21 +138,22 @@ class ReferralProgramsController extends BaseController
             $action = $request->input('action');
             $selection = json_decode($request->input('selection'), true);
             switch ($action) {
-                case 'delete' :
+                case 'delete':
                     foreach ($selection as $selection_id) {
                         $ReferralProgram = ReferralProgram::findByHash($selection_id);
-                        $referral_request = new ReferralProgramRequest;
+                        $referral_request = new ReferralProgramRequest();
                         $referral_request->setMethod('DELETE');
                         $this->destroy($referral_request, $ReferralProgram);
                     }
                     $message = ['level' => 'success', 'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular])];
+
                     break;
-                case 'active' :
+                case 'active':
                     foreach ($selection as $selection_id) {
                         $ReferralProgram = ReferralProgram::findByHash($selection_id);
                         if (user()->can('Referral::referral_program.update')) {
                             $ReferralProgram->update([
-                                'status' => 'active'
+                                'status' => 'active',
                             ]);
                             $ReferralProgram->save();
                             $message = ['level' => 'success', 'message' => trans('ReferralProgram::attributes.update_status', ['item' => $this->title_singular])];
@@ -165,13 +161,14 @@ class ReferralProgramsController extends BaseController
                             $message = ['level' => 'error', 'message' => trans('ReferralProgram::attributes.no_permission', ['item' => $this->title_singular])];
                         }
                     }
+
                     break;
-                case 'inActive' :
+                case 'inActive':
                     foreach ($selection as $selection_id) {
                         $ReferralProgram = ReferralProgram::findByHash($selection_id);
                         if (user()->can('Referral::referral_program.update')) {
                             $ReferralProgram->update([
-                                'status' => 'inactive'
+                                'status' => 'inactive',
                             ]);
                             $ReferralProgram->save();
                             $message = ['level' => 'success', 'message' => trans('ReferralProgram::attributes.update_status', ['item' => $this->title_singular])];
@@ -179,12 +176,14 @@ class ReferralProgramsController extends BaseController
                             $message = ['level' => 'error', 'message' => trans('ReferralProgram::attributes.no_permission', ['item' => $this->title_singular])];
                         }
                     }
+
                     break;
             }
         } catch (\Exception $exception) {
             log_exception($exception, ReferralProgram::class, 'bulkAction');
             $message = ['level' => 'error', 'message' => $exception->getMessage()];
         }
+
         return response()->json($message);
     }
 

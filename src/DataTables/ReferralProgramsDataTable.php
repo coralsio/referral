@@ -63,6 +63,7 @@ class ReferralProgramsDataTable extends BaseDataTable
     protected function getOptions()
     {
         $url = url(config('referral_program.models.referral_program.resource_url'));
+
         return ['resource_url' => $url];
     }
 }

@@ -3,12 +3,11 @@
 namespace Corals\Modules\Referral\Policies;
 
 use Corals\Foundation\Policies\BasePolicy;
-use Corals\User\Models\User;
 use Corals\Modules\Referral\Models\ReferralProgram;
+use Corals\User\Models\User;
 
 class ReferralProgramPolicy extends BasePolicy
 {
-
     /**
      * @param User $user
      * @return bool
@@ -18,6 +17,7 @@ class ReferralProgramPolicy extends BasePolicy
         if ($user->can('Referral::referral_program.view')) {
             return true;
         }
+
         return false;
     }
 
@@ -40,6 +40,7 @@ class ReferralProgramPolicy extends BasePolicy
         if ($user->can('Referral::referral_program.update')) {
             return true;
         }
+
         return false;
     }
 
@@ -53,7 +54,7 @@ class ReferralProgramPolicy extends BasePolicy
         if ($user->can('Referral::referral_program.delete')) {
             return true;
         }
+
         return false;
     }
-
 }

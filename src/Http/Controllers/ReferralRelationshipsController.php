@@ -35,11 +35,10 @@ class ReferralRelationshipsController extends BaseController
      */
     public function index(ReferralRelationshipRequest $request, ReferralProgram $referral_program, ReferralRelationshipsDataTable $dataTable)
     {
-        $this->setViewSharedData(['title' => trans('ReferralProgram::labels.index_title',['name' => $referral_program->name ,'title' => $this->title])]);
+        $this->setViewSharedData(['title' => trans('ReferralProgram::labels.index_title', ['name' => $referral_program->name ,'title' => $this->title])]);
 
         return $dataTable->setResourceUrl($this->resource_url)->render('ReferralProgram::referral_relationships.index', compact('referral_program'));
     }
-
 
     /**
      * @param ReferralRelationshipRequest $request
@@ -71,5 +70,4 @@ class ReferralRelationshipsController extends BaseController
 
         return $dataTable->setResourceUrl(url('referral/my-referrals'))->render('ReferralProgram::referral_relationships.index');
     }
-
 }

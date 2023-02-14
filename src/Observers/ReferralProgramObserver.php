@@ -6,7 +6,6 @@ use Corals\Modules\Referral\Models\ReferralProgram;
 
 class ReferralProgramObserver
 {
-
     /**
      * @param ReferralProgram $referral_program
      */

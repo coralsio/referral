@@ -6,7 +6,6 @@ use Corals\Foundation\Transformers\FractalPresenter;
 
 class ReferralProgramPresenter extends FractalPresenter
 {
-
     /**
      * @param array $extras
      * @return ReferralProgramTransformer|\League\Fractal\TransformerAbstract

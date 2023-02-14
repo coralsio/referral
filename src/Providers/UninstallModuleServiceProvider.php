@@ -11,7 +11,7 @@ use Corals\User\Models\Permission;
 class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
 {
     protected $migrations = [
-        ReferralTables::class
+        ReferralTables::class,
     ];
 
     protected function providerBooted()

@@ -6,7 +6,6 @@ use Corals\Modules\Referral\Models\ReferralLink;
 
 class ReferralLinkObserver
 {
-
     /**
      * @param ReferralLink $referral_link
      */

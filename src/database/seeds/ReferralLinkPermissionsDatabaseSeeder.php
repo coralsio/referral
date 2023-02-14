@@ -21,7 +21,7 @@ class ReferralLinkPermissionsDatabaseSeeder extends Seeder
                 'guard_name' => config('auth.defaults.guard'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]
+            ],
         ]);
 
         $member_role = Role::where('name', 'member')->first();

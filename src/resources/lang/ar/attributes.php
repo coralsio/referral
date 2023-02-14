@@ -15,7 +15,7 @@ return [
         'uri_help' => 'عنوان الصفحة حيث سيتم ارسال التوصيات الى ',
         'title' => 'العنوان',
         'description' => 'الوصف',
-        'registration_award' => 'مكافأة التسجيل'
-    ]
+        'registration_award' => 'مكافأة التسجيل',
+    ],
 
 ];

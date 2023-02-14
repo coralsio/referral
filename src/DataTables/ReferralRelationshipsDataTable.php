@@ -30,7 +30,7 @@ class ReferralRelationshipsDataTable extends BaseDataTable
     public function query(ReferralRelationship $model)
     {
         $referral_program = $this->request->route('referral_program');
-        if (!$referral_program) {
+        if (! $referral_program) {
             abort('404');
         }
 

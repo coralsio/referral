@@ -16,5 +16,5 @@ return [
         'relationship' => 'العلاقة',
         'relation_ship_title' => 'علاقة التوصيات',
         'name_referral_relationship' => '[:name] علاقة التوصيات',
-    ]
+    ],
 ];

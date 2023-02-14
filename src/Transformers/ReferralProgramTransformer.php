@@ -34,7 +34,7 @@ class ReferralProgramTransformer extends BaseTransformer
             'created_at' => format_date($referral_program->created_at),
             'updated_at' => format_date($referral_program->updated_at),
             'short_code' => $this->getShortcode($referral_program),
-            'action' => $this->actions($referral_program)
+            'action' => $this->actions($referral_program),
         ];
 
         return parent::transformResponse($transformedArray);

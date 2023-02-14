@@ -3,12 +3,11 @@
 namespace Corals\Modules\Referral;
 
 use Corals\Modules\Referral\Facades\Referral;
-use Corals\Modules\Referral\Models\ReferralLink;
+use Corals\Modules\Referral\Hooks\Referral as ReferralHooks;
 use Corals\Modules\Referral\Models\ReferralProgram;
 use Corals\Modules\Referral\Providers\ReferralAuthServiceProvider;
 use Corals\Modules\Referral\Providers\ReferralObserverServiceProvider;
 use Corals\Modules\Referral\Providers\ReferralRouteServiceProvider;
-use Corals\Modules\Referral\Hooks\Referral as ReferralHooks;
 use Corals\Settings\Facades\Modules;
 use Corals\Settings\Facades\Settings;
 use Illuminate\Foundation\AliasLoader;
@@ -23,7 +22,6 @@ class ReferralServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
     public function boot()
     {
         // Load view
@@ -72,6 +70,7 @@ class ReferralServiceProvider extends ServiceProvider
     {
         Settings::addCustomFieldModel(ReferralProgram::class);
     }
+
     public function registerModulesPackages()
     {
         Modules::addModulesPackages('corals/referral');

@@ -28,6 +28,6 @@ return [
         'ecommerce' => 'eCommerce Sale',
     ],
     'update_status' => 'Updated Status !',
-    'no_permission' => 'There is no permission update status'
+    'no_permission' => 'There is no permission update status',
 
 ];

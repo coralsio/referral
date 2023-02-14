@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 
 class ReferralProgramsDemoTableSeeder extends Seeder
 {
-
     /**
      * Auto generated seed file
      *
@@ -14,11 +13,5 @@ class ReferralProgramsDemoTableSeeder extends Seeder
      */
     public function run()
     {
-
-
-
-
-
-
     }
 }

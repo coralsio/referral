@@ -18,7 +18,5 @@ class ReferralDatabaseSeeder extends Seeder
         $this->call(ReferralProgramsDemoTableSeeder::class);
         $this->call(ReferralLinksDemoTableSeeder::class);
         $this->call(ReferralMenusDatabaseSeeder::class);
-
-
     }
 }

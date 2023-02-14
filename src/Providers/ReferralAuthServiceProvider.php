@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Referral\Providers;
 
-
 use Corals\Modules\Referral\Models\ReferralLink;
 use Corals\Modules\Referral\Models\ReferralProgram;
 use Corals\Modules\Referral\Models\ReferralRelationship;
@@ -21,7 +20,7 @@ class ReferralAuthServiceProvider extends ServiceProvider
     protected $policies = [
         ReferralProgram::class => ReferralProgramPolicy::class,
         ReferralLink::class => ReferralLinkPolicy::class,
-        ReferralRelationship::class => ReferralRelationshipPolicy::class
+        ReferralRelationship::class => ReferralRelationshipPolicy::class,
     ];
 
     /**

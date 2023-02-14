@@ -13,8 +13,5 @@ class ReferralLinksDemoTableSeeder extends Seeder
      */
     public function run()
     {
-
-
-
     }
 }

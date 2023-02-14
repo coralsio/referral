@@ -21,7 +21,6 @@ class ReferralRelationshipTransformer extends BaseTransformer
      */
     public function transform(ReferralRelationship $referralRelationship)
     {
-
         $user_show = config('user.models.user.resource_url');
 
         if (user()->can('User::user.view')) {
@@ -40,7 +39,7 @@ class ReferralRelationshipTransformer extends BaseTransformer
             'reward' => $referralRelationship->reward,
             'created_at' => format_date($referralRelationship->created_at),
             'updated_at' => format_date($referralRelationship->updated_at),
-            'action' => $this->actions($referralRelationship)
+            'action' => $this->actions($referralRelationship),
         ];
 
         return parent::transformResponse($transformedArray);

@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Referral\Providers;
 
-
 use Corals\Modules\Referral\Models\ReferralLink;
 use Corals\Modules\Referral\Models\ReferralProgram;
 use Corals\Modules\Referral\Observers\ReferralLinkObserver;
@@ -16,7 +15,6 @@ class ReferralObserverServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         ReferralProgram::observe(ReferralProgramObserver::class);
         ReferralLink::observe(ReferralLinkObserver::class);
     }

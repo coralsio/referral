@@ -9,7 +9,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class ReferralRelationship extends BaseModel
 {
-    use PresentableTrait, LogsActivity;
+    use PresentableTrait;
+    use LogsActivity;
 
     protected $fillable = ['referral_link_id', 'user_id', 'reward', 'translation_language_code'];
 

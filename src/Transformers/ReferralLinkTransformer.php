@@ -31,7 +31,7 @@ class ReferralLinkTransformer extends BaseTransformer
             'status' => formatStatusAsLabels($referral_link->status),
             'created_at' => format_date($referral_link->created_at),
             'updated_at' => format_date($referral_link->updated_at),
-            'action' => $this->actions($referral_link, [], $url)
+            'action' => $this->actions($referral_link, [], $url),
         ];
 
         return parent::transformResponse($transformedArray);

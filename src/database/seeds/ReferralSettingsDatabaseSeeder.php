@@ -14,7 +14,6 @@ class ReferralSettingsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         \DB::table('settings')->insert([
             [
                 'code' => 'referral_point_value',

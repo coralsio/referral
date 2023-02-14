@@ -16,5 +16,5 @@ return [
         'relationship' => 'Relationship',
         'relation_ship_title' => 'Referral Relationship',
         'name_referral_relationship' => '[:name] Referral Relationship',
-    ]
+    ],
 ];

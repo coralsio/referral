@@ -8,7 +8,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class ReferralProgram extends BaseModel
 {
-    use PresentableTrait, LogsActivity;
+    use PresentableTrait;
+    use LogsActivity;
 
     /**
      *  Model configuration.
@@ -17,7 +18,7 @@ class ReferralProgram extends BaseModel
     public $config = 'referral_program.models.referral_program';
 
     protected $casts = [
-        'options' => 'array'
+        'options' => 'array',
     ];
 
     protected $guarded = ['id'];
@@ -36,7 +37,6 @@ class ReferralProgram extends BaseModel
     {
         return $this->hasMany(ReferralLink::class);
     }
-
 
     public function activeReferralLinks()
     {

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 class ReferralTables extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -16,8 +15,7 @@ class ReferralTables extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('referral_programs')) {
-
+        if (! Schema::hasTable('referral_programs')) {
             Schema::create('referral_programs', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name')->unique();
@@ -36,8 +34,7 @@ class ReferralTables extends Migration
                 $table->timestamps();
             });
         }
-        if (!Schema::hasTable('referral_links')) {
-
+        if (! Schema::hasTable('referral_links')) {
             Schema::create('referral_links', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id')->unsigned();
@@ -48,7 +45,6 @@ class ReferralTables extends Migration
                 $table->unsignedInteger('created_by')->nullable()->index();
                 $table->unsignedInteger('updated_by')->nullable()->index();
                 $table->foreign('referral_program_id')->references('id')->on('referral_programs')->onDelete('cascade');
-
             });
         }
 
@@ -62,13 +58,10 @@ class ReferralTables extends Migration
             $table->unsignedInteger('updated_by')->nullable()->index();
             $table->foreign('referral_link_id')->references('id')->on('referral_links')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
         });
 
         Schema::table('users', function (Blueprint $table) {
             $table->integer('reward_points')->unsigned()->nullable()->dafault(0);
-
-
         });
     }
 
@@ -95,6 +88,5 @@ class ReferralTables extends Migration
         Schema::dropIfExists('referral_links');
 
         Schema::dropIfExists('referral_programs');
-
     }
 }

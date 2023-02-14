@@ -25,7 +25,7 @@ Breadcrumbs::register('referral_program_show', function ($breadcrumbs) {
 //ReferralLinks
 Breadcrumbs::register('referral_links', function ($breadcrumbs, $referral_program) {
     $breadcrumbs->parent('referral_programs');
-    $breadcrumbs->push(trans('ReferralProgram::module.referral_link.name_referral_link',['name' => $referral_program->name]));
+    $breadcrumbs->push(trans('ReferralProgram::module.referral_link.name_referral_link', ['name' => $referral_program->name]));
 });
 
 Breadcrumbs::register('referral_link_create_edit', function ($breadcrumbs, $referral_program) {
@@ -38,7 +38,7 @@ Breadcrumbs::register('referral_relationships', function ($breadcrumbs, $referra
     $breadcrumbs->parent('referral_programs');
 
     if ($referral_program) {
-        $text = trans('ReferralProgram::module.referral_relationship.name_referral_relationship',['name' => $referral_program->name]);
+        $text = trans('ReferralProgram::module.referral_relationship.name_referral_relationship', ['name' => $referral_program->name]);
     } else {
         $text = trans('ReferralProgram::module.referral_relationship.relation_ship_title');
     }

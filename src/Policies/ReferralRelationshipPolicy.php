@@ -9,7 +9,7 @@ use Corals\User\Models\User;
 class ReferralRelationshipPolicy extends BasePolicy
 {
     protected $skippedAbilities = [
-        'destroy', 'create'
+        'destroy', 'create',
     ];
 
     public function view(User $user)
@@ -26,5 +26,4 @@ class ReferralRelationshipPolicy extends BasePolicy
     {
         return user()->can('Referral::referral_relationship.destroy');
     }
-
 }

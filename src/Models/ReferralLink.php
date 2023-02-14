@@ -6,12 +6,14 @@ use Corals\Foundation\Models\BaseModel;
 use Corals\Foundation\Transformers\PresentableTrait;
 use Corals\User\Models\User;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class ReferralLink extends BaseModel implements HasMedia
 {
-    use PresentableTrait, LogsActivity, InteractsWithMedia ;
+    use PresentableTrait;
+    use LogsActivity;
+    use InteractsWithMedia ;
 
     /**
      *  Model configuration.
@@ -30,14 +32,12 @@ class ReferralLink extends BaseModel implements HasMedia
         });
 
         parent::boot();
-
     }
 
     private function generateCode()
     {
         $this->code = \Str::random(10);
     }
-
 
     public function getLinkAttribute()
     {
@@ -58,6 +58,4 @@ class ReferralLink extends BaseModel implements HasMedia
     {
         return $this->hasMany(ReferralRelationship::class);
     }
-
-
 }
