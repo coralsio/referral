@@ -2,6 +2,7 @@
 
 namespace Corals\Modules\Referral;
 
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 use Corals\Modules\Referral\Facades\Referral;
 use Corals\Modules\Referral\Hooks\Referral as ReferralHooks;
 use Corals\Modules\Referral\Models\ReferralProgram;
@@ -11,18 +12,24 @@ use Corals\Modules\Referral\Providers\ReferralRouteServiceProvider;
 use Corals\Settings\Facades\Modules;
 use Corals\Settings\Facades\Settings;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 
-class ReferralServiceProvider extends ServiceProvider
+class ReferralServiceProvider extends BasePackageServiceProvider
 {
+    /**
+     * @var
+     */
     protected $defer = true;
+    /**
+     * @var
+     */
+    protected $packageCode = 'corals-referral';
 
     /**
      * Bootstrap the application events.
      *
      * @return void
      */
-    public function boot()
+    public function bootPackage()
     {
         // Load view
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'ReferralProgram');
@@ -36,7 +43,6 @@ class ReferralServiceProvider extends ServiceProvider
         $this->registerHooks();
 
         $this->registerCustomFieldsModels();
-        $this->registerModulesPackages();
     }
 
     /**
@@ -44,7 +50,7 @@ class ReferralServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function registerPackage()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/referral_program.php', 'referral_program');
 
