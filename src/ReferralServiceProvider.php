@@ -38,7 +38,7 @@ class ReferralServiceProvider extends BasePackageServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'ReferralProgram');
 
         // Load migrations
-//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        //        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         $this->registerHooks();
 
