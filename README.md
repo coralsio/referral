@@ -1,9 +1,5 @@
 # Corals Referral
 
----
-
-## Description
-
 With the Referral module, you can encourage your end-users or customers to invite other people to Register, Subscription to Plan, or purchase products. and they will get points in return.
 
 ### How does it work?
@@ -16,6 +12,7 @@ With the Referral module, you can encourage your end-users or customers to invit
 
 Note. Redeem Points is out of the scope with this module as its really different from one business to another, its currently available on Marketplace only where users can redeem their points on Checkout process
 
+---
 
 ## Installation
 
