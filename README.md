@@ -32,6 +32,11 @@ composer require corals/referral
 ```bash
 vendor/bin/phpunit vendor/corals/referral/tests 
 ```
+## Demo
+
+You can see Referrals Plugin in action when you log in to Laraship subscriptions website at :
+
+https://demo.laraship.com
 
 ## Hire Us
 Looking for a professional team to build your success and start driving your business forward.
