@@ -6,7 +6,7 @@
     "description": "Referral",
     "namespace": "Corals\\Modules\\Referral",
     "provider": "ReferralServiceProvider",
-    "version": "4.0",
+    "version": "10.0.0",
     "load_order": "0",
     "folder": "corals-referral",
     "icon": "fa fa-comment",
